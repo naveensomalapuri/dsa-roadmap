@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DSA Mastery Roadmap — Complete GeeksForGeeks Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root, [data-theme="light"] {
+  --bg:#f5f6fa; --bg2:#ffffff; --bg3:#eef0f6;
+  --border:rgba(0,0,0,0.08); --border2:rgba(0,0,0,0.14);
+  --text:#1a1d2e; --text2:#5a607a; --text3:#9298b0;
+  --shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 14px rgba(0,0,0,0.05);
+  --shadow2:0 1px 4px rgba(0,0,0,0.07);
+  --accent:#0e7c5b; --accent-bg:#e6f5ef; --accent-br:#b3dece;
+  --blue:#1d4ed8; --blue-bg:#eff4ff;
+  --orange:#b45309; --orange-bg:#fff7ed;
+  --red:#dc2626; --red-bg:#fef2f2;
+  --p1:#1d4ed8; --p1-bg:#eff4ff; --p1-br:rgba(29,78,216,0.18);
+  --p2:#6d28d9; --p2-bg:#f5f3ff; --p2-br:rgba(109,40,217,0.18);
+  --p3:#0e7c5b; --p3-bg:#e6f5ef; --p3-br:rgba(14,124,91,0.22);
+  --p4:#b45309; --p4-bg:#fff7ed; --p4-br:rgba(180,83,9,0.18);
+  --p5:#be185d; --p5-bg:#fdf2f8; --p5-br:rgba(190,24,93,0.18);
+  --p6:#92400e; --p6-bg:#fefce8; --p6-br:rgba(146,64,14,0.18);
+  --toggle-bg:#dde1ee; --toggle-knob:#ffffff;
+  --hero-bg:linear-gradient(160deg,#f0f9ff 0%,#f5f6fa 55%,#f0fdf4 100%);
+}
+[data-theme="dark"] {
+  --bg:#0d0f17; --bg2:#141620; --bg3:#1c1f2e;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --text:#e8eaf5; --text2:#8890b0; --text3:#555e7a;
+  --shadow:0 1px 4px rgba(0,0,0,0.5),0 4px 16px rgba(0,0,0,0.35);
+  --shadow2:0 1px 4px rgba(0,0,0,0.4);
+  --accent:#10d98a; --accent-bg:rgba(16,217,138,0.08); --accent-br:rgba(16,217,138,0.22);
+  --blue:#60a5fa; --blue-bg:rgba(96,165,250,0.08);
+  --orange:#fb923c; --orange-bg:rgba(251,146,60,0.08);
+  --red:#f87171; --red-bg:rgba(248,113,113,0.08);
+  --p1:#60a5fa; --p1-bg:rgba(96,165,250,0.1); --p1-br:rgba(96,165,250,0.22);
+  --p2:#a78bfa; --p2-bg:rgba(167,139,250,0.1); --p2-br:rgba(167,139,250,0.22);
+  --p3:#10d98a; --p3-bg:rgba(16,217,138,0.08); --p3-br:rgba(16,217,138,0.25);
+  --p4:#fb923c; --p4-bg:rgba(251,146,60,0.1); --p4-br:rgba(251,146,60,0.22);
+  --p5:#f472b6; --p5-bg:rgba(244,114,182,0.1); --p5-br:rgba(244,114,182,0.22);
+  --p6:#fbbf24; --p6-bg:rgba(251,191,36,0.1); --p6-br:rgba(251,191,36,0.22);
+  --toggle-bg:#252840; --toggle-knob:#3a3f58;
+  --hero-bg:linear-gradient(160deg,#0d1117 0%,#0d0f17 55%,#0a140f 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s;}
+.topbar{position:sticky;top:0;z-index:200;background:var(--bg2);border-bottom:1px solid var(--border);box-shadow:var(--shadow2);display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:52px;transition:background .3s,border-color .3s;}
+.topbar-left{display:flex;align-items:center;gap:9px;}
+.topbar-logo{width:30px;height:30px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;flex-shrink:0;}
+.topbar-title{font-size:14px;font-weight:700;color:var(--text);}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.topbar-pct{font-family:'Space Mono',monospace;font-size:12px;color:var(--accent);font-weight:700;}
+.theme-toggle{position:relative;width:52px;height:28px;cursor:pointer;flex-shrink:0;}
+.theme-toggle input{opacity:0;width:0;height:0;position:absolute;}
+.toggle-track{position:absolute;inset:0;background:var(--toggle-bg);border-radius:99px;border:1px solid var(--border2);transition:background .3s;display:flex;align-items:center;justify-content:space-between;padding:0 6px;font-size:11px;}
+.toggle-knob{position:absolute;top:4px;left:4px;width:18px;height:18px;background:var(--toggle-knob);border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.25);transition:transform .3s cubic-bezier(.4,0,.2,1),background .3s;}
+[data-theme="dark"] .toggle-knob{transform:translateX(24px);background:var(--accent);}
+.hero{background:var(--hero-bg);padding:56px 24px 46px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s;}
+.hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:480px;height:480px;background:radial-gradient(circle,rgba(14,124,91,.06) 0%,transparent 70%);pointer-events:none;}
+[data-theme="dark"] .hero::before{background:radial-gradient(circle,rgba(16,217,138,.07) 0%,transparent 70%);}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent-br);padding:5px 14px;border-radius:99px;margin-bottom:20px;}
+.hero h1{font-size:clamp(30px,7vw,66px);font-weight:800;line-height:1.07;letter-spacing:-.025em;color:var(--text);margin-bottom:14px;}
+.hero h1 .grad{background:linear-gradient(135deg,var(--accent) 0%,var(--blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(13px,2.2vw,16px);color:var(--text2);max-width:520px;margin:0 auto 34px;line-height:1.65;font-weight:400;}
+.hero-stats{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.hero-stat{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:13px 18px;text-align:center;min-width:82px;box-shadow:var(--shadow2);transition:background .3s,border-color .3s;}
+.hero-stat .n{font-size:22px;font-weight:800;color:var(--accent);}
+.hero-stat .l{font-size:10px;color:var(--text3);margin-top:3px;font-family:'Space Mono',monospace;}
+.progress-wrap{max-width:760px;margin:0 auto;padding:18px 18px 10px;}
+.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.progress-label{font-size:12px;color:var(--text2);font-family:'Space Mono',monospace;}
+.progress-pct{font-size:12px;color:var(--accent);font-family:'Space Mono',monospace;font-weight:700;}
+.progress-track{height:7px;background:var(--bg3);border-radius:99px;overflow:hidden;border:1px solid var(--border);}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#3dd68c);border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%;}
+.container{max-width:760px;margin:0 auto;padding:8px 14px 80px;}
+.phase{margin-bottom:10px;border-radius:16px;border:1.5px solid var(--border);background:var(--bg2);overflow:hidden;box-shadow:var(--shadow2);transition:border-color .2s,box-shadow .2s,background .3s;}
+.phase:hover{box-shadow:var(--shadow);}
+.phase-header{display:flex;align-items:center;gap:11px;padding:15px 16px;cursor:pointer;user-select:none;transition:background .15s;border-radius:14px;}
+.phase-header:hover{background:var(--bg3);}
+.phase.open .phase-header{border-radius:14px 14px 0 0;}
+.phase-num{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;font-family:'Space Mono',monospace;flex-shrink:0;}
+.phase-info{flex:1;min-width:0;}
+.phase-title{font-size:clamp(13px,2.5vw,14px);font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.phase-badge{display:inline-block;font-size:10px;font-family:'Space Mono',monospace;padding:2px 8px;border-radius:99px;margin-top:4px;}
+.phase-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.phase-count{font-family:'Space Mono',monospace;font-size:11px;color:var(--text3);background:var(--bg3);padding:2px 8px;border-radius:99px;border:1px solid var(--border);}
+.phase-arrow{width:26px;height:26px;border-radius:7px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text2);transition:transform .25s cubic-bezier(.4,0,.2,1),background .15s;}
+.phase-body{display:none;border-top:1.5px solid var(--border);padding:0 16px 14px;}
+.phase-body.open{display:block;}
+.phase-tip{display:flex;align-items:flex-start;gap:8px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 13px;margin:13px 0 10px;font-size:12px;color:var(--text2);line-height:1.55;}
+.phase-tip .icon{font-size:13px;flex-shrink:0;margin-top:1px;}
+.week-label{font-size:10px;font-family:'Space Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:15px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+.topic{display:flex;align-items:flex-start;gap:10px;padding:9px 5px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:7px;transition:background .12s,padding-left .12s;}
+.topic:last-child{border-bottom:none;}
+.topic:hover{background:var(--bg3);padding-left:9px;}
+.topic-check{width:17px;height:17px;border-radius:5px;border:1.5px solid var(--border2);background:var(--bg);flex-shrink:0;margin-top:2px;cursor:pointer;appearance:none;-webkit-appearance:none;position:relative;transition:all .15s;}
+.topic-check:checked{background:var(--accent);border-color:var(--accent);}
+.topic-check:checked::after{content:'✓';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:10px;color:#fff;font-weight:800;line-height:1;}
+.topic-body{flex:1;min-width:0;}
+.topic-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+.topic-name.done{color:var(--text3);text-decoration:line-through;}
+.topic-sub{font-size:11px;color:var(--text3);margin-top:3px;line-height:1.45;}
+.topic-sub a{color:var(--blue);text-decoration:none;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;transition:opacity .15s;}
+.topic-sub a:hover{text-decoration:underline;opacity:.75;}
+.diff{font-size:9px;font-family:'Space Mono',monospace;font-weight:700;padding:2px 7px;border-radius:99px;text-transform:uppercase;letter-spacing:.04em;flex-shrink:0;}
+.diff-easy{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent-br);}
+.diff-medium{background:var(--orange-bg);color:var(--orange);border:1px solid rgba(180,83,9,.18);}
+.diff-hard{background:var(--red-bg);color:var(--red);border:1px solid rgba(220,38,38,.18);}
+[data-theme="dark"] .diff-medium{border-color:rgba(251,146,60,.2);}
+[data-theme="dark"] .diff-hard{border-color:rgba(248,113,113,.2);}
+.p1 .phase-num{background:var(--p1-bg);color:var(--p1);} .p1 .phase-badge{background:var(--p1-bg);color:var(--p1);} .p1.open{border-color:var(--p1-br);}
+.p2 .phase-num{background:var(--p2-bg);color:var(--p2);} .p2 .phase-badge{background:var(--p2-bg);color:var(--p2);} .p2.open{border-color:var(--p2-br);}
+.p3 .phase-num{background:var(--p3-bg);color:var(--p3);} .p3 .phase-badge{background:var(--p3-bg);color:var(--p3);} .p3.open{border-color:var(--p3-br);}
+.p4 .phase-num{background:var(--p4-bg);color:var(--p4);} .p4 .phase-badge{background:var(--p4-bg);color:var(--p4);} .p4.open{border-color:var(--p4-br);}
+.p5 .phase-num{background:var(--p5-bg);color:var(--p5);} .p5 .phase-badge{background:var(--p5-bg);color:var(--p5);} .p5.open{border-color:var(--p5-br);}
+.p6 .phase-num{background:var(--p6-bg);color:var(--p6);} .p6 .phase-badge{background:var(--p6-bg);color:var(--p6);} .p6.open{border-color:var(--p6-br);}
+.reset-btn{display:block;margin:18px auto 0;background:transparent;border:1.5px solid var(--border2);color:var(--text2);font-family:'Space Mono',monospace;font-size:11px;padding:8px 20px;border-radius:9px;cursor:pointer;transition:all .15s;}
+.reset-btn:hover{background:var(--bg3);color:var(--text);}
+.footer{text-align:center;padding:26px 18px;border-top:1px solid var(--border);font-size:11px;color:var(--text3);font-family:'Space Mono',monospace;margin-top:6px;}
+.footer a{color:var(--accent);text-decoration:none;}
+.footer a:hover{text-decoration:underline;}
+.scroll-top{position:fixed;bottom:20px;right:16px;width:40px;height:40px;background:var(--bg2);border:1.5px solid var(--border2);border-radius:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text2);box-shadow:var(--shadow);transition:all .2s;z-index:100;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all;}
+.scroll-top:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.hero{animation:fadeUp .5s ease both;}
+.progress-wrap{animation:fadeUp .5s .07s ease both;}
+.container{animation:fadeUp .5s .13s ease both;}
+@media(max-width:500px){
+  .hero{padding:40px 14px 34px;}
+  .topbar{padding:0 13px;} .topbar-title{font-size:13px;}
+  .phase-header{padding:12px 13px;} .phase-body{padding:0 13px 13px;}
+  .hero-stat{padding:10px 12px;min-width:72px;} .hero-stat .n{font-size:20px;}
+  .container{padding:6px 10px 60px;}
+  .progress-wrap{padding:14px 12px 8px;}
+  .phase-count{display:none;}
+}
+@media(max-width:360px){.hero h1{font-size:27px;}.hero-stats{gap:6px;}.hero-stat{min-width:66px;padding:8px 9px;}}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">D</div>
+    <span class="topbar-title">DSA Roadmap · Complete</span>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-pct" id="top-pct">0%</span>
+    <label class="theme-toggle" title="Toggle dark / light mode" aria-label="Toggle theme">
+      <input type="checkbox" id="theme-cb" onchange="toggleTheme(this)"/>
+      <div class="toggle-track"><span>☀️</span><span>🌙</span></div>
+      <div class="toggle-knob"></div>
+    </label>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">✓ GFG Complete Syllabus · Zero Topic Skipped</div>
+  <h1>DSA <span class="grad">Mastery</span><br/>Roadmap</h1>
+  <p class="hero-sub">From absolute zero to FAANG-ready. Every GFG topic — basic, intermediate, advanced — in a single linear track. No tab-hopping, no missed sub-topics.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="n" id="stat-done">0</div><div class="l">Done</div></div>
+    <div class="hero-stat"><div class="n" id="stat-total">0</div><div class="l">Topics</div></div>
+    <div class="hero-stat"><div class="n" id="stat-pct">0%</div><div class="l">Complete</div></div>
+    <div class="hero-stat"><div class="n" id="stat-phase">P1</div><div class="l">Phase</div></div>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-header">
+    <span class="progress-label" id="prog-label">0 / 0 topics completed</span>
+    <span class="progress-pct" id="prog-pct">0%</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+</div>
+
+<div class="container" id="phases-container"></div>
+
+<button class="reset-btn" onclick="resetAll()">↺ Reset all progress</button>
+
+<div class="footer">
+  Complete GFG DSA Roadmap · 6 Phases · 25 Weeks &nbsp;·&nbsp;
+  <a href="https://www.geeksforgeeks.org/dsa/dsa-tutorial-learn-data-structures-and-algorithms/" target="_blank">GFG DSA Tutorial ↗</a>
+  &nbsp;·&nbsp;
+  <a href="https://www.geeksforgeeks.org/dsa/complete-roadmap-to-learn-dsa-from-scratch/" target="_blank">GFG Roadmap ↗</a>
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+const G = "https://www.geeksforgeeks.org";
+const link = (path, label="Open GFG ↗") => `<a href='${G}${path}' target='_blank'>${label}</a>`;
+
+const PHASES = [
+  {
+    id:"p1",cls:"p1",num:"01",title:"Programming Foundation",badge:"Week 1 – 2",
+    tip:"Pick ONE language (Python, C++, or Java) and stick with it the entire 25 weeks. Switching mid-way resets your muscle memory.",
+    weeks:[
+      {label:"Week 1 — Language Basics",topics:[
+        {name:"Input / Output & Variables",sub:`Data types, operators, type casting · ${link('/dsa/input-and-output-in-programming/')}`,diff:"easy"},
+        {name:"Conditional Statements",sub:`if/else, switch-case, nested conditions, ternary · ${link('/dsa/conditional-statements-in-programming/')}`,diff:"easy"},
+        {name:"Loops — for, while, do-while",sub:`Nested loops, break/continue, infinite loops · ${link('/dsa/for-loop-in-programming/')}`,diff:"easy"},
+        {name:"Functions & Scope",sub:`Parameters, return values, recursion intro, call stack · ${link('/dsa/functions-in-programming/')}`,diff:"easy"},
+        {name:"Pointers / References & Memory",sub:`Pointer arithmetic, references, dynamic allocation, malloc/new · ${link('/c/c-pointers/')}`,diff:"easy"},
+        {name:"Classes & Objects (OOP)",sub:`Constructors, methods, inheritance, polymorphism, encapsulation · ${link('/dsa/class-and-object-for-data-structure/')}`,diff:"easy"},
+        {name:"Standard Library / STL",sub:`C++ STL containers / Java Collections / Python collections + heapq · ${link('/cpp/the-c-standard-template-library-stl/')}`,diff:"easy"},
+      ]},
+      {label:"Week 2 — Logic, Complexity, Math & Bits",topics:[
+        {name:"Logic Building Problems",sub:`Pattern printing, dry-run practice, number problems · ${link('/dsa/logic-building-problems/')}`,diff:"easy"},
+        {name:"Asymptotic Analysis (Big-O, Θ, Ω)",sub:`Order of growth, worst/avg/best case · ${link('/dsa/analysis-algorithms-big-o-analysis/')}`,diff:"easy"},
+        {name:"Time Complexity",sub:`O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ) · ${link('/dsa/practice-questions-time-complexity-analysis/')}`,diff:"easy"},
+        {name:"Space Complexity",sub:`Auxiliary space, in-place vs extra space · ${link('/dsa/g-fact-86/')}`,diff:"easy"},
+        {name:"Recurrence Relations & Master Theorem",sub:`Solving recurrences (substitution, recursion tree, master method) · ${link('/dsa/advanced-master-theorem-for-divide-and-conquer-recurrences/')}`,diff:"medium"},
+        {name:"Mathematics for DSA",sub:`GCD (Euclidean), LCM, primes, Sieve of Eratosthenes, modular arithmetic · ${link('/dsa/mathematical-algorithms/')}`,diff:"medium"},
+        {name:"Prime Factorization & Divisors",sub:`Trial division, smallest prime factor, count of divisors · ${link('/dsa/prime-factorization-using-sieve-olog-n-multiple-queries/')}`,diff:"medium"},
+        {name:"Modular Arithmetic",sub:`(a+b)%m, (a*b)%m, modular inverse, Fermat's little theorem · ${link('/dsa/modular-arithmetic/')}`,diff:"medium"},
+        {name:"Bit Manipulation Basics",sub:`AND, OR, XOR, NOT, left/right shifts · ${link('/dsa/bits-manipulation-important-tactics/')}`,diff:"medium"},
+        {name:"Bit Tricks",sub:`Set/clear/toggle bit, count set bits (Brian Kernighan), check power of 2 · ${link('/dsa/bit-tricks-competitive-programming/')}`,diff:"medium"},
+        {name:"XOR Properties & Problems",sub:`Single number, missing number, find two unique numbers · ${link('/dsa/calculate-xor-1-n/')}`,diff:"medium"},
+      ]},
+    ]
+  },
+  {
+    id:"p2",cls:"p2",num:"02",title:"Core Data Structures",badge:"Week 3 – 8",
+    tip:"Implement EVERY data structure from scratch first (linked list, stack, queue, heap, BST). Only then use built-ins. This is the most important phase.",
+    weeks:[
+      {label:"Week 3 — Arrays & Matrix",topics:[
+        {name:"Array Fundamentals",sub:`Insert, delete, traverse, search, rotate, reverse · ${link('/dsa/array-data-structure-guide/')}`,diff:"easy"},
+        {name:"Two-Pointer Technique",sub:`Pair sum, remove duplicates, 3-sum, container with most water · ${link('/dsa/two-pointers-technique/')}`,diff:"easy"},
+        {name:"Sliding Window (Fixed & Variable)",sub:`Max sum subarray K, longest substr no repeat, min window · ${link('/dsa/window-sliding-technique/')}`,diff:"medium"},
+        {name:"Prefix Sum & Difference Array",sub:`Range sum queries, 2D prefix sum, equilibrium index · ${link('/dsa/prefix-sum-array-implementation-applications-competitive-programming/')}`,diff:"medium"},
+        {name:"Kadane's Algorithm",sub:`Max subarray sum, max circular subarray sum · ${link('/dsa/largest-sum-contiguous-subarray/')}`,diff:"medium"},
+        {name:"Dutch National Flag (Sort 0,1,2)",sub:`3-way partition, sort colors · ${link('/dsa/sort-an-array-of-0s-1s-and-2s/')}`,diff:"medium"},
+        {name:"Boyer-Moore Majority Vote",sub:`Majority element (> n/2), majority II (> n/3) · ${link('/dsa/boyer-moore-majority-voting-algorithm/')}`,diff:"medium"},
+        {name:"Trapping Rain Water",sub:`Classic two-pointer & stack approach · ${link('/dsa/trapping-rain-water/')}`,diff:"hard"},
+        {name:"Stock Buy / Sell Problems",sub:`Single transaction, multiple, with cooldown, with fee · ${link('/dsa/stock-buy-sell/')}`,diff:"medium"},
+        {name:"Next Permutation & Array Tricks",sub:`Next permutation, max product subarray, rearrange array · ${link('/dsa/next-permutation/')}`,diff:"medium"},
+        {name:"Matrix / 2D Array Fundamentals",sub:`Traversal, search, transpose · ${link('/dsa/introduction-to-matrix-or-grid-data-structure-and-algorithms-tutorial/')}`,diff:"easy"},
+        {name:"Matrix Rotations & Traversal",sub:`Spiral, diagonal, boundary, rotate 90°, Toeplitz · ${link('/dsa/rotate-a-matrix-by-90-degree-without-using-any-extra-space/')}`,diff:"medium"},
+        {name:"Matrix Search",sub:`Search in row-col sorted matrix, set matrix zeros · ${link('/dsa/search-element-sorted-matrix/')}`,diff:"medium"},
+        {name:"Conway's Game of Life",sub:`In-place simulation on 2D grid · ${link('/dsa/program-for-conways-game-of-life/')}`,diff:"hard"},
+      ]},
+      {label:"Week 4 — Strings",topics:[
+        {name:"String Fundamentals",sub:`Char arrays, immutability, concatenation, comparison · ${link('/dsa/string-data-structure/')}`,diff:"easy"},
+        {name:"Palindrome Problems",sub:`Check palindrome, count palindromic substrings · ${link('/dsa/check-if-a-string-is-palindrome/')}`,diff:"easy"},
+        {name:"Anagram Problems",sub:`Check anagram, group anagrams, sort by frequency · ${link('/dsa/check-whether-two-strings-are-anagram-of-each-other/')}`,diff:"easy"},
+        {name:"String Conversion",sub:`atoi, itoa, Roman to integer, integer to English · ${link('/dsa/write-your-own-atoi/')}`,diff:"medium"},
+        {name:"Subsequence vs Substring",sub:`Check subsequence, longest common substring · ${link('/dsa/given-two-strings-find-first-string-subsequence-second/')}`,diff:"medium"},
+        {name:"String Compression / URLify",sub:`Run-length encoding, replace spaces, count and say · ${link('/dsa/run-length-encoding/')}`,diff:"medium"},
+        {name:"Smallest Window Substring",sub:`Min window containing all chars of pattern · ${link('/dsa/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/')}`,diff:"hard"},
+        {name:"Lexicographic Rank",sub:`Find rank of permutation, next lexicographic perm · ${link('/dsa/lexicographic-rank-of-a-string/')}`,diff:"hard"},
+      ]},
+      {label:"Week 5 — Linked Lists, Stack & Queue",topics:[
+        {name:"Singly Linked List",sub:`Insert, delete, traverse, search, length · ${link('/dsa/linked-list-data-structure/')}`,diff:"easy"},
+        {name:"Doubly & Circular Linked List",sub:`Bidirectional ops, circular traversal · ${link('/dsa/doubly-linked-list/')}`,diff:"easy"},
+        {name:"Reverse Linked List",sub:`Iterative, recursive, in groups of K · ${link('/dsa/reverse-a-linked-list/')}`,diff:"medium"},
+        {name:"Floyd's Cycle Detection",sub:`Detect cycle, find cycle start, length · ${link('/dsa/detect-loop-in-a-linked-list/')}`,diff:"medium"},
+        {name:"Merge & Sort Linked List",sub:`Merge two sorted, merge sort, sort 0/1/2 LL · ${link('/dsa/merge-two-sorted-linked-lists/')}`,diff:"medium"},
+        {name:"Linked List Advanced",sub:`LRU cache, LFU cache, flatten, clone with random pointer · ${link('/dsa/lru-cache-implementation/')}`,diff:"hard"},
+        {name:"Stack Fundamentals",sub:`Push, pop, peek, array & linked-list implementation · ${link('/dsa/stack-data-structure/')}`,diff:"easy"},
+        {name:"Stack Applications",sub:`Balanced parens, infix→postfix, postfix eval, min stack · ${link('/dsa/stack-data-structure-introduction-program/')}`,diff:"medium"},
+        {name:"Monotonic Stack",sub:`Next greater/smaller, stock span, largest rect histogram · ${link('/dsa/monotonic-stack/')}`,diff:"medium"},
+        {name:"Queue & Circular Queue",sub:`Enqueue/dequeue, queue using two stacks, stack using two queues · ${link('/dsa/queue-data-structure/')}`,diff:"easy"},
+        {name:"Deque (Double-Ended Queue)",sub:`Operations + sliding window max via deque · ${link('/deque-set-1-introduction-applications/')}`,diff:"medium"},
+        {name:"Priority Queue Introduction",sub:`Conceptual intro (full heap impl in Week 8) · ${link('/dsa/priority-queue-set-1-introduction/')}`,diff:"medium"},
+      ]},
+      {label:"Week 6 — Hashing & Searching",topics:[
+        {name:"Hash Maps & Hash Sets",sub:`Frequency count, two sum, group anagrams, subarray sum=k · ${link('/dsa/hashing-data-structure/')}`,diff:"easy"},
+        {name:"Hash Functions & Collisions",sub:`Hash function design, chaining vs open addressing · ${link('/dsa/hashing-set-2-separate-chaining/')}`,diff:"medium"},
+        {name:"Open Addressing",sub:`Linear probing, quadratic probing, double hashing · ${link('/dsa/hashing-set-3-open-addressing/')}`,diff:"medium"},
+        {name:"Load Factor & Rehashing",sub:`When to resize, amortized analysis · ${link('/dsa/load-factor-and-rehashing/')}`,diff:"medium"},
+        {name:"Linear Search",sub:`Sentinel search, basic problems · ${link('/dsa/linear-search/')}`,diff:"easy"},
+        {name:"Binary Search & Variants",sub:`First/last occurrence, count occurrences, ceil/floor · ${link('/dsa/binary-search/')}`,diff:"easy"},
+        {name:"Search in Rotated Sorted Array",sub:`With/without duplicates, find rotation pivot · ${link('/dsa/search-an-element-in-a-sorted-and-pivoted-array/')}`,diff:"medium"},
+        {name:"Binary Search on Answer",sub:`Book allocation, Koko bananas, aggressive cows, painters · ${link('/dsa/binary-search-on-answer/')}`,diff:"medium"},
+        {name:"Jump, Exponential & Interpolation Search",sub:`Variants of search algorithms · ${link('/dsa/jump-search/')}`,diff:"medium"},
+        {name:"Ternary Search",sub:`Search in unimodal functions · ${link('/dsa/ternary-search/')}`,diff:"medium"},
+      ]},
+      {label:"Week 7 — Sorting Algorithms",topics:[
+        {name:"Comparison Sorts (Basic)",sub:`Bubble, selection, insertion sort · ${link('/dsa/sorting-algorithms/')}`,diff:"easy"},
+        {name:"Merge Sort",sub:`Divide & conquer, stable, O(n log n) · ${link('/dsa/merge-sort/')}`,diff:"medium"},
+        {name:"Quick Sort",sub:`Lomuto, Hoare partition, randomized · ${link('/dsa/quick-sort-algorithm/')}`,diff:"medium"},
+        {name:"Heap Sort",sub:`Build heap, extract max, O(n log n) · ${link('/dsa/heap-sort/')}`,diff:"medium"},
+        {name:"Non-Comparison Sorts",sub:`Counting, radix, bucket sort · ${link('/dsa/counting-sort/')}`,diff:"medium"},
+        {name:"Specialty Sorts",sub:`Tim, shell, cycle, pancake, wave sort · ${link('/dsa/tim-sort/')}`,diff:"medium"},
+        {name:"Sorting Problems",sub:`Sort by frequency, inversions count, merge intervals · ${link('/dsa/counting-inversions/')}`,diff:"hard"},
+      ]},
+      {label:"Week 8 — Trees, BST & Heap",topics:[
+        {name:"Tree Terminology & Basics",sub:`Root, leaf, height, depth, level, complete/full/perfect · ${link('/dsa/tree-data-structure/')}`,diff:"easy"},
+        {name:"Binary Tree Traversals (Recursive)",sub:`Inorder, preorder, postorder · ${link('/dsa/tree-traversals-inorder-preorder-and-postorder/')}`,diff:"easy"},
+        {name:"Iterative Traversals & Morris",sub:`Using stack, Morris O(1) space traversal · ${link('/dsa/morris-traversal-for-preorder/')}`,diff:"medium"},
+        {name:"Level Order (BFS) & Views",sub:`Level order, zigzag, left/right/top/bottom view · ${link('/dsa/level-order-tree-traversal/')}`,diff:"medium"},
+        {name:"Tree Properties",sub:`Height, diameter, balanced check, symmetric, identical · ${link('/dsa/diameter-of-a-binary-tree/')}`,diff:"medium"},
+        {name:"Lowest Common Ancestor (LCA)",sub:`Standard LCA, LCA in BST, path between nodes · ${link('/dsa/lowest-common-ancestor-binary-tree-set-1/')}`,diff:"medium"},
+        {name:"Tree Construction",sub:`From inorder+preorder, from postorder, serialize/deserialize · ${link('/dsa/construct-tree-from-given-inorder-and-preorder-traversal/')}`,diff:"hard"},
+        {name:"Binary Search Tree (BST)",sub:`Insert, search, delete, validate BST · ${link('/dsa/binary-search-tree-data-structure/')}`,diff:"easy"},
+        {name:"BST Operations",sub:`Floor/ceil, kth smallest/largest, inorder successor · ${link('/dsa/find-k-th-smallest-element-in-bst-order-statistics-in-bst/')}`,diff:"medium"},
+        {name:"AVL Trees / Self-Balancing BST",sub:`LL, RR, LR, RL rotations, balance factor · ${link('/introduction-to-avl-tree/')}`,diff:"hard"},
+        {name:"Threaded & N-ary Trees",sub:`Threaded BT, generic/N-ary tree representation · ${link('/dsa/threaded-binary-tree/')}`,diff:"medium"},
+        {name:"Heap / Priority Queue",sub:`Min/max heap, heapify, insert, extract · ${link('/dsa/introduction-to-heap/')}`,diff:"medium"},
+        {name:"Heap Problems",sub:`Top-K, K closest, K largest, median in stream · ${link('/dsa/k-largestor-smallest-elements-in-an-array/')}`,diff:"hard"},
+        {name:"Merge K Sorted Lists/Arrays",sub:`Using min-heap, divide & conquer · ${link('/dsa/merge-k-sorted-arrays/')}`,diff:"hard"},
+      ]},
+    ]
+  },
+  {
+    id:"p3",cls:"p3",num:"03",title:"Core Algorithms",badge:"Week 9 – 13",
+    tip:"Recursion: identify base case → trust the function → combine. DP = Recursion + Memory. Practice 1D before 2D before knapsack before string DP.",
+    weeks:[
+      {label:"Week 9 — Recursion & Backtracking",topics:[
+        {name:"Recursion Fundamentals",sub:`Factorial, fibonacci, sum to N, power · ${link('/dsa/introduction-to-recursion-2/')}`,diff:"easy"},
+        {name:"Classic Recursion Problems",sub:`Tower of Hanoi, rope cutting, Josephus, print all subsets · ${link('/dsa/c-program-for-tower-of-hanoi/')}`,diff:"medium"},
+        {name:"Tail Recursion & Optimization",sub:`Concept, convert recursion to iteration · ${link('/dsa/tail-recursion/')}`,diff:"medium"},
+        {name:"Subsets & Subsequences",sub:`Power set, sum of subsets, subset count · ${link('/dsa/power-set/')}`,diff:"medium"},
+        {name:"Permutations",sub:`String permutations, next perm, unique perms · ${link('/dsa/write-a-c-program-to-print-all-permutations-of-a-given-string/')}`,diff:"medium"},
+        {name:"Combinations",sub:`nCr, combination sum, k-combinations · ${link('/dsa/combinational-sum/')}`,diff:"medium"},
+        {name:"Generate Parentheses & Gray Code",sub:`Balanced parens, Gray code sequence · ${link('/dsa/print-all-the-combinations-of-n-balanced-parentheses/')}`,diff:"medium"},
+        {name:"Backtracking — N-Queens",sub:`Place N queens, count solutions · ${link('/dsa/n-queen-problem-backtracking-3/')}`,diff:"hard"},
+        {name:"Backtracking — Sudoku & Rat in Maze",sub:`Sudoku solver, rat in maze, knight's tour · ${link('/dsa/sudoku-backtracking-7/')}`,diff:"hard"},
+        {name:"Word Search & Graph Coloring",sub:`Word search on grid, M-coloring problem · ${link('/dsa/m-coloring-problem/')}`,diff:"hard"},
+        {name:"Backtracking Overview",sub:`Pattern recognition, pruning strategies · ${link('/dsa/backtracking-algorithms/')}`,diff:"hard"},
+      ]},
+      {label:"Week 10 — Divide & Conquer + Greedy",topics:[
+        {name:"Divide & Conquer Paradigm",sub:`Recurrence analysis, applications · ${link('/dsa/divide-and-conquer/')}`,diff:"medium"},
+        {name:"D&C Problems",sub:`Closest pair, inversion count, skyline, max subarray D&C · ${link('/dsa/closest-pair-of-points-using-divide-and-conquer-algorithm/')}`,diff:"hard"},
+        {name:"Greedy Fundamentals",sub:`Activity selection, fractional knapsack · ${link('/dsa/greedy-algorithms/')}`,diff:"medium"},
+        {name:"Interval Problems",sub:`Job sequencing, non-overlapping, meeting rooms, min platforms · ${link('/dsa/minimum-number-of-platforms-required-for-a-railwaybus-station/')}`,diff:"medium"},
+        {name:"Greedy Classics",sub:`Gas station, candy distribution, lemonade change, jump game · ${link('/dsa/gas-station-problem/')}`,diff:"medium"},
+        {name:"Huffman Coding",sub:`Build huffman tree, encode/decode · ${link('/huffman-coding-greedy-algo-3/')}`,diff:"hard"},
+      ]},
+      {label:"Week 11 — Dynamic Programming Basics (1D & 2D)",topics:[
+        {name:"DP Intro — Memoization",sub:`Top-down: fib, climb stairs, frog jump · ${link('/dsa/memoization-1-fibonacci-numbers/')}`,diff:"medium"},
+        {name:"Tabulation (Bottom-Up)",sub:`Convert recursion → table, space optimization · ${link('/dsa/tabulation-vs-memoization/')}`,diff:"medium"},
+        {name:"1D DP",sub:`House robber I/II, max non-adjacent, decode ways · ${link('/dsa/dynamic-programming/')}`,diff:"medium"},
+        {name:"2D DP — Grids",sub:`Unique paths, min path sum, max gold, cherry pickup · ${link('/dsa/count-of-different-paths-from-top-to-bottom-of-a-matrix/')}`,diff:"medium"},
+        {name:"Maximal Square / Rectangle",sub:`Max square of 1s, max rectangle in binary matrix · ${link('/dsa/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/')}`,diff:"hard"},
+      ]},
+      {label:"Week 12 — DP on Subsequences, Knapsack & Strings",topics:[
+        {name:"0/1 Knapsack",sub:`Classic 0/1, subset sum, partition equal subset · ${link('/0-1-knapsack-problem-dp-10/')}`,diff:"hard"},
+        {name:"Unbounded Knapsack",sub:`Coin change (ways/min), rod cutting · ${link('/dsa/unbounded-knapsack-repetition-items-allowed/')}`,diff:"hard"},
+        {name:"LIS & Variants",sub:`Longest increasing subseq, Russian dolls, bitonic · ${link('/dsa/longest-increasing-subsequence-dp-3/')}`,diff:"hard"},
+        {name:"LCS & Variants",sub:`Longest common subseq, longest common substring, SCS · ${link('/dsa/longest-common-subsequence-dp-4/')}`,diff:"hard"},
+        {name:"Edit Distance Family",sub:`Edit dist, delete ops, min insertions for palindrome · ${link('/dsa/edit-distance-dp-5/')}`,diff:"hard"},
+        {name:"Pattern Matching DP",sub:`Wildcard matching, regex matching, distinct subseq · ${link('/dsa/wildcard-pattern-matching/')}`,diff:"hard"},
+        {name:"Palindromic Subsequence",sub:`LPS, min insertions for palindrome, count palin subseq · ${link('/dsa/longest-palindromic-subsequence-dp-12/')}`,diff:"hard"},
+        {name:"Word Break",sub:`Word break I/II, concatenated words · ${link('/dsa/word-break-problem-dp-32/')}`,diff:"hard"},
+      ]},
+      {label:"Week 13 — DP Advanced (Partition, Trees, Bitmask, Digit, Stocks)",topics:[
+        {name:"MCM — Matrix Chain Multiplication",sub:`Parenthesization, partition DP intro · ${link('/dsa/matrix-chain-multiplication-dp-8/')}`,diff:"hard"},
+        {name:"Palindrome Partitioning",sub:`Min cuts, partition string into palindromes · ${link('/dsa/palindrome-partitioning-dp-17/')}`,diff:"hard"},
+        {name:"Burst Balloons & Boolean Parenthesization",sub:`Range partition DP · ${link('/dsa/burst-balloon-to-maximize-coins/')}`,diff:"hard"},
+        {name:"DP on Stocks (6 Variants)",sub:`1 txn, 2 txn, K txn, infinite, with cooldown, with fee · ${link('/dsa/stock-buy-sell/')}`,diff:"hard"},
+        {name:"DP on Trees",sub:`Tree diameter via DP, max path sum, House Robber III · ${link('/dsa/diameter-tree-using-dfs/')}`,diff:"hard"},
+        {name:"Bitmask DP",sub:`Travelling Salesman, assignment problem, subset enum · ${link('/dsa/travelling-salesman-problem-using-dynamic-programming/')}`,diff:"hard"},
+        {name:"Digit DP",sub:`Count numbers with property, digit sum constraints · ${link('/dsa/digit-dp-introduction/')}`,diff:"hard"},
+        {name:"DP with Game Theory",sub:`Stone game, Nim DP, optimal strategy · ${link('/dsa/optimal-strategy-for-a-game-dp-31/')}`,diff:"hard"},
+        {name:"Catalan & Optimal BST",sub:`Catalan numbers, unique BSTs, optimal BST · ${link('/dsa/program-nth-catalan-number/')}`,diff:"hard"},
+        {name:"Egg Dropping Puzzle",sub:`Classic DP, K-egg N-floor · ${link('/dsa/egg-dropping-puzzle-dp-11/')}`,diff:"hard"},
+      ]},
+    ]
+  },
+  {
+    id:"p4",cls:"p4",num:"04",title:"Graphs",badge:"Week 14 – 17",
+    tip:"Graphs host most hard interview problems. ~70% of FAANG hard rounds = graphs + DP. Take extra time here.",
+    weeks:[
+      {label:"Week 14 — Representation, BFS, DFS",topics:[
+        {name:"Graph Representation",sub:`Adjacency list, matrix, edge list, weighted/directed · ${link('/dsa/graph-data-structure-and-algorithms/')}`,diff:"easy"},
+        {name:"BFS (Breadth-First Search)",sub:`Level-order, shortest path unweighted · ${link('/dsa/breadth-first-search-or-bfs-for-a-graph/')}`,diff:"easy"},
+        {name:"DFS (Depth-First Search)",sub:`Recursive + iterative, DFS tree · ${link('/dsa/depth-first-search-or-dfs-for-a-graph/')}`,diff:"easy"},
+        {name:"Connected Components",sub:`Count components, largest component · ${link('/dsa/connected-components-in-an-undirected-graph/')}`,diff:"easy"},
+        {name:"Cycle Detection",sub:`Directed (DFS color), undirected (DFS/DSU) · ${link('/dsa/detect-cycle-in-a-graph/')}`,diff:"medium"},
+        {name:"Bipartite Graph Check",sub:`2-coloring via BFS/DFS, odd cycle · ${link('/bipartite-graph/')}`,diff:"medium"},
+        {name:"Topological Sort",sub:`Kahn's BFS + DFS-based, lexicographic · ${link('/topological-sorting/')}`,diff:"medium"},
+        {name:"Grid as Graph Problems",sub:`Flood fill, number of islands, rotten oranges · ${link('/dsa/flood-fill-algorithm-implement-fill-paint/')}`,diff:"medium"},
+        {name:"Multi-Source BFS",sub:`Rotten oranges, walls and gates, 0-1 BFS · ${link('/multi-source-bfs/')}`,diff:"medium"},
+      ]},
+      {label:"Week 15 — Shortest Path, MST, DSU",topics:[
+        {name:"Dijkstra's Algorithm",sub:`Single-source shortest path, PQ optimization · ${link('/dijkstras-shortest-path-algorithm-greedy-algo-7/')}`,diff:"medium"},
+        {name:"Bellman-Ford",sub:`Negative edges, negative cycle detection · ${link('/bellman-ford-algorithm-dp-23/')}`,diff:"medium"},
+        {name:"Floyd-Warshall",sub:`All-pairs shortest path, transitive closure · ${link('/floyd-warshall-algorithm-dp-16/')}`,diff:"medium"},
+        {name:"0-1 BFS & SPFA",sub:`Shortest path with 0/1 weights via deque · ${link('/dsa/0-1-bfs-shortest-path-in-a-binary-weight-graph/')}`,diff:"medium"},
+        {name:"Johnson's Algorithm",sub:`All-pairs shortest path with negative edges · ${link('/dsa/johnsons-algorithm/')}`,diff:"hard"},
+        {name:"Kruskal's MST",sub:`Edge-list + DSU based MST · ${link('/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/')}`,diff:"medium"},
+        {name:"Prim's MST",sub:`Greedy + priority queue based MST · ${link('/dsa/prims-minimum-spanning-tree-mst-greedy-algo-5/')}`,diff:"medium"},
+        {name:"Disjoint Set Union (DSU)",sub:`Union by rank, path compression · ${link('/union-find/')}`,diff:"medium"},
+        {name:"DSU Applications",sub:`Number of provinces, accounts merge, Kruskal · ${link('/dsa/disjoint-set-data-structures/')}`,diff:"hard"},
+      ]},
+      {label:"Week 16 — SCC, Bridges, Eulerian, Hamiltonian",topics:[
+        {name:"Bridges in Graph",sub:`Tarjan's algorithm for cut edges · ${link('/bridge-in-a-graph/')}`,diff:"hard"},
+        {name:"Articulation Points",sub:`Cut vertices, DFS low-link values · ${link('/articulation-points-or-cut-vertices-in-a-graph/')}`,diff:"hard"},
+        {name:"Strongly Connected Components",sub:`Kosaraju's algorithm (2-pass DFS) · ${link('/strongly-connected-components/')}`,diff:"hard"},
+        {name:"Tarjan's SCC",sub:`Single-pass SCC with stack · ${link('/dsa/tarjan-algorithm-find-strongly-connected-components/')}`,diff:"hard"},
+        {name:"Eulerian Path & Circuit",sub:`Hierholzer's algorithm, Fleury's algorithm · ${link('/dsa/eulerian-path-and-circuit/')}`,diff:"hard"},
+        {name:"Hamiltonian Path & Cycle",sub:`Backtracking approach, NP-complete · ${link('/dsa/hamiltonian-cycle-backtracking-6/')}`,diff:"hard"},
+        {name:"Travelling Salesman Problem",sub:`Bitmask DP + branch and bound approaches · ${link('/dsa/travelling-salesman-problem-using-dynamic-programming/')}`,diff:"hard"},
+      ]},
+      {label:"Week 17 — Network Flow, Matching, 2-SAT",topics:[
+        {name:"Max Flow — Ford-Fulkerson",sub:`Augmenting paths, residual graph · ${link('/dsa/ford-fulkerson-algorithm-for-maximum-flow-problem/')}`,diff:"hard"},
+        {name:"Edmonds-Karp & Dinic's",sub:`BFS-based Ford-Fulkerson, level graph · ${link('/dsa/dinics-algorithm-maximum-flow/')}`,diff:"hard"},
+        {name:"Min Cut & Max-Flow Min-Cut Theorem",sub:`Karger's randomized min cut · ${link('/dsa/karger-s-algorithm-set-1-introduction-and-implementation/')}`,diff:"hard"},
+        {name:"Max Bipartite Matching",sub:`Via max-flow, Hopcroft-Karp · ${link('/dsa/maximum-bipartite-matching/')}`,diff:"hard"},
+        {name:"2-SAT Problem",sub:`Boolean satisfiability via SCC · ${link('/dsa/2-satisfiability-2-sat-problem/')}`,diff:"hard"},
+        {name:"Hard Graph Problems",sub:`Word ladder, snake & ladder, alien dictionary · ${link('/dsa/word-ladder-length-of-shortest-chain-to-reach-a-target-word/')}`,diff:"hard"},
+      ]},
+    ]
+  },
+  {
+    id:"p5",cls:"p5",num:"05",title:"Advanced Data Structures & Algorithms",badge:"Week 18 – 21",
+    tip:"FAANG senior interviews lean here. You don't need to implement every one — but be able to recognize which tool fits a problem and pseudo-code it.",
+    weeks:[
+      {label:"Week 18 — Tries, Segment Tree, Fenwick, Sqrt",topics:[
+        {name:"Trie (Prefix Tree)",sub:`Insert, search, prefix, delete · ${link('/dsa/trie-insert-and-search/')}`,diff:"medium"},
+        {name:"Trie Applications",sub:`Autocomplete, longest common prefix, search suggestions · ${link('/dsa/auto-complete-feature-using-trie/')}`,diff:"hard"},
+        {name:"XOR Trie",sub:`Max XOR pair, K-th max XOR · ${link('/dsa/maximum-xor-of-two-numbers-in-an-array/')}`,diff:"hard"},
+        {name:"Segment Tree — Build & Query",sub:`Range sum/min/max, point update · ${link('/dsa/segment-tree-data-structure/')}`,diff:"hard"},
+        {name:"Segment Tree — Lazy Propagation",sub:`Range update + range query · ${link('/dsa/lazy-propagation-in-segment-tree/')}`,diff:"hard"},
+        {name:"Binary Indexed Tree (Fenwick)",sub:`Prefix sums, point/range update · ${link('/dsa/binary-indexed-tree-or-fenwick-tree-2/')}`,diff:"hard"},
+        {name:"2D BIT & 2D Segment Tree",sub:`2D range queries, sum in matrix · ${link('/dsa/two-dimensional-binary-indexed-tree-or-fenwick-tree/')}`,diff:"hard"},
+        {name:"Sqrt Decomposition",sub:`Block decomposition for range queries · ${link('/dsa/square-root-sqrt-decomposition-algorithm/')}`,diff:"hard"},
+        {name:"Mo's Algorithm",sub:`Offline range queries, query reordering · ${link('/dsa/mos-algorithm-query-square-root-decomposition-set-1-introduction/')}`,diff:"hard"},
+        {name:"Sparse Table & RMQ",sub:`O(1) range min/max after O(n log n) build · ${link('/dsa/sparse-table/')}`,diff:"hard"},
+      ]},
+      {label:"Week 19 — Advanced Trees",topics:[
+        {name:"LCA Binary Lifting",sub:`O(log n) LCA queries, sparse-table LCA · ${link('/lca-in-a-tree-using-binary-lifting-technique/')}`,diff:"hard"},
+        {name:"Euler Tour Technique",sub:`Flatten tree for subtree/path queries · ${link('/dsa/euler-tour-tree/')}`,diff:"hard"},
+        {name:"Heavy-Light Decomposition",sub:`Path queries on trees in O(log² n) · ${link('/dsa/heavy-light-decomposition-set-1-introduction/')}`,diff:"hard"},
+        {name:"Centroid Decomposition",sub:`Tree problems via centroid trick · ${link('/dsa/centroid-decomposition-of-tree/')}`,diff:"hard"},
+        {name:"Red-Black Tree",sub:`Self-balancing BST, insert/delete cases · ${link('/introduction-to-red-black-tree/')}`,diff:"hard"},
+        {name:"B-Tree & B+ Tree",sub:`Multi-way search tree, DB index structure · ${link('/dsa/introduction-of-b-tree-2/')}`,diff:"hard"},
+        {name:"Treap (Randomized BST)",sub:`BST + heap priority, expected O(log n) · ${link('/dsa/treap-a-randomized-binary-search-tree/')}`,diff:"hard"},
+        {name:"Splay Tree",sub:`Self-adjusting BST, splay operation · ${link('/dsa/splay-tree-set-1-insert/')}`,diff:"hard"},
+        {name:"Skip List",sub:`Probabilistic alternative to balanced BST · ${link('/dsa/skip-list/')}`,diff:"hard"},
+        {name:"Cartesian Tree",sub:`Build from array, related to range max query · ${link('/dsa/cartesian-tree/')}`,diff:"hard"},
+        {name:"Interval Tree",sub:`Search overlapping intervals · ${link('/dsa/interval-tree/')}`,diff:"hard"},
+        {name:"K-D Tree",sub:`K-dimensional search, nearest neighbor · ${link('/dsa/kd-tree/')}`,diff:"hard"},
+        {name:"Persistent Data Structures",sub:`Persistent segment tree, version history · ${link('/dsa/persistent-segment-tree-set-1-introduction/')}`,diff:"hard"},
+      ]},
+      {label:"Week 20 — Advanced String Algorithms",topics:[
+        {name:"KMP Pattern Matching",sub:`LPS array, O(n+m) string search · ${link('/kmp-algorithm-for-pattern-searching/')}`,diff:"hard"},
+        {name:"Rabin-Karp (Rolling Hash)",sub:`Polynomial hashing, multi-pattern search · ${link('/rabin-karp-algorithm-for-pattern-searching/')}`,diff:"hard"},
+        {name:"Z-Algorithm",sub:`Z-array, linear pattern search · ${link('/z-algorithm-linear-time-pattern-searching-algorithm/')}`,diff:"hard"},
+        {name:"Manacher's Algorithm",sub:`All palindromic substrings in O(n) · ${link('/dsa/manachers-algorithm-linear-time-longest-palindromic-substring-part-1/')}`,diff:"hard"},
+        {name:"Boyer-Moore",sub:`Bad-character + good-suffix heuristic · ${link('/dsa/boyer-moore-algorithm-for-pattern-searching/')}`,diff:"hard"},
+        {name:"Suffix Array",sub:`O(n log n) construction, applications · ${link('/dsa/suffix-array-set-1-introduction/')}`,diff:"hard"},
+        {name:"Suffix Tree (Ukkonen's)",sub:`Linear time construction, pattern search · ${link('/dsa/pattern-searching-using-suffix-tree/')}`,diff:"hard"},
+        {name:"Aho-Corasick",sub:`Multi-pattern matching, failure links · ${link('/dsa/aho-corasick-algorithm-pattern-searching/')}`,diff:"hard"},
+        {name:"Trie-based String Problems",sub:`Palindrome pairs, word search II, replace words · ${link('/dsa/palindrome-pair-trie/')}`,diff:"hard"},
+      ]},
+      {label:"Week 21 — Math, Geometry, Game Theory, Misc",topics:[
+        {name:"Modular Exponentiation",sub:`(a^n) % m in O(log n), matrix expo concept · ${link('/dsa/modular-exponentiation-power-in-modular-arithmetic/')}`,diff:"medium"},
+        {name:"Matrix Exponentiation",sub:`Fast Fibonacci, linear recurrence in O(log n) · ${link('/dsa/matrix-exponentiation/')}`,diff:"hard"},
+        {name:"Modular Inverse",sub:`Fermat's little, extended Euclidean · ${link('/dsa/multiplicative-inverse-under-modulo-m/')}`,diff:"hard"},
+        {name:"Chinese Remainder Theorem (CRT)",sub:`System of modular equations · ${link('/dsa/chinese-remainder-theorem-set-1-introduction/')}`,diff:"hard"},
+        {name:"Euler's Totient Function",sub:`φ(n), Euler's theorem, totient sieve · ${link('/dsa/eulers-totient-function/')}`,diff:"hard"},
+        {name:"Primality Testing",sub:`Miller-Rabin, Fermat's test · ${link('/dsa/primality-test-set-3-miller-rabin/')}`,diff:"hard"},
+        {name:"Pollard's Rho Factorization",sub:`Probabilistic prime factorization · ${link('/dsa/pollards-rho-algorithm-prime-factorization/')}`,diff:"hard"},
+        {name:"Combinatorics",sub:`nCr, nPr, Pascal's triangle, stars & bars · ${link('/dsa/binomial-coefficient-dp-9/')}`,diff:"medium"},
+        {name:"Inclusion-Exclusion Principle",sub:`Count problems via I-E formula · ${link('/dsa/inclusion-exclusion-principle-2/')}`,diff:"hard"},
+        {name:"Catalan & Stirling Numbers",sub:`Catalan apps, Stirling 1st/2nd kind · ${link('/dsa/program-nth-catalan-number/')}`,diff:"hard"},
+        {name:"Geometry — Convex Hull",sub:`Graham scan, Jarvis march, Andrew's monotone · ${link('/dsa/convex-hull-using-graham-scan/')}`,diff:"hard"},
+        {name:"Line Intersection & Orientation",sub:`Segment intersect, CCW orientation · ${link('/dsa/check-if-two-given-line-segments-intersect/')}`,diff:"hard"},
+        {name:"Closest Pair of Points",sub:`D&C O(n log n) approach · ${link('/dsa/closest-pair-of-points-using-divide-and-conquer-algorithm/')}`,diff:"hard"},
+        {name:"Point in Polygon & Polygon Area",sub:`Ray casting, shoelace formula · ${link('/dsa/check-if-a-point-lies-inside-a-rectangle-or-not/')}`,diff:"hard"},
+        {name:"Game Theory — Nim",sub:`Nim game, XOR strategy · ${link('/dsa/combinatorial-game-theory-set-2-game-nim/')}`,diff:"hard"},
+        {name:"Sprague-Grundy Theorem",sub:`Grundy numbers, mex calculation · ${link('/dsa/combinatorial-game-theory-set-3-grundy-numbersnimbers-mex/')}`,diff:"hard"},
+        {name:"Randomized Algorithms",sub:`Reservoir sampling, randomized quicksort · ${link('/dsa/reservoir-sampling/')}`,diff:"hard"},
+        {name:"Approximation Algorithms",sub:`Vertex cover, set cover, TSP approximation · ${link('/dsa/introduction-to-approximation-algorithms/')}`,diff:"hard"},
+        {name:"Branch & Bound",sub:`8-puzzle, TSP via B&B, knapsack B&B · ${link('/dsa/branch-and-bound-algorithm/')}`,diff:"hard"},
+      ]},
+    ]
+  },
+  {
+    id:"p6",cls:"p6",num:"06",title:"Interview Grind & Final Prep",badge:"Week 22 – 25",
+    tip:"Solve 3–5 problems daily. Time yourself (45 min cap). Write your approach in plain English BEFORE typing code. Re-do problems you got wrong after 7 days.",
+    weeks:[
+      {label:"Week 22 — GFG Curated Sheets",topics:[
+        {name:"GFG-160 Series",sub:`160 must-solve placement problems · ${link('/courses/gfg-160-series')}`,diff:"medium"},
+        {name:"GFG SDE Sheet",sub:`Comprehensive 150+ must-do by GFG experts · ${link('/dsa/sde-sheet-a-complete-guide-for-sde-preparation/')}`,diff:"medium"},
+        {name:"Top 100 DSA Interview Questions",sub:`Topic-wise FAANG-style problems · ${link('/dsa/top-100-data-structure-and-algorithms-dsa-interview-questions-topic-wise/')}`,diff:"medium"},
+        {name:"Top 50 Array Problems",sub:`Amazon, Microsoft, Google tagged · ${link('/top-50-array-coding-problems-for-interviews/')}`,diff:"medium"},
+        {name:"Top 50 String Problems",sub:`Standard string interview problems · ${link('/dsa/top-50-string-coding-problems-for-interviews/')}`,diff:"medium"},
+        {name:"Top 50 Linked List Problems",sub:`Reverse, merge, cycle, LRU · ${link('/dsa/top-50-problems-on-linked-list-data-structure-asked-in-sde-interviews/')}`,diff:"medium"},
+        {name:"Top 50 Tree Problems",sub:`Traversal, views, LCA, construction · ${link('/dsa/top-50-tree-coding-problems-for-interviews/')}`,diff:"medium"},
+      ]},
+      {label:"Week 23 — Hard Topics & Company-Tagged",topics:[
+        {name:"Top 50 Dynamic Programming",sub:`All major DP patterns · ${link('/top-50-dynamic-programming-coding-problems-for-interviews/')}`,diff:"hard"},
+        {name:"Top 50 Graph Problems",sub:`BFS, DFS, shortest path, MST mixed · ${link('/top-50-graph-coding-problems-for-interviews/')}`,diff:"hard"},
+        {name:"Top 50 Backtracking",sub:`Subsets, permutations, N-queens · ${link('/dsa/top-50-backtracking-coding-problems-for-interviews/')}`,diff:"hard"},
+        {name:"Must-Do Company Problems",sub:`Amazon, Microsoft, Adobe, Flipkart · ${link('/dsa/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/')}`,diff:"hard"},
+        {name:"Striver SDE Sheet (Cross-ref)",sub:`Cross-reference with takeUforward sheet · ${link('/dsa/sde-sheet-a-complete-guide-for-sde-preparation/')}`,diff:"hard"},
+      ]},
+      {label:"Week 24 — Low-Level Design & OOP",topics:[
+        {name:"OOP Design Principles",sub:`SOLID, DRY, KISS, design patterns intro · ${link('/system-design/solid-principle-in-programming-understand-with-real-life-examples/')}`,diff:"medium"},
+        {name:"Common LLD Problems",sub:`Parking lot, snake game, elevator, library system · ${link('/system-design/design-parking-lot-system-using-oo-design/')}`,diff:"hard"},
+        {name:"Design Patterns",sub:`Singleton, factory, observer, strategy, decorator · ${link('/system-design/software-design-patterns/')}`,diff:"hard"},
+        {name:"System Design Basics",sub:`Scalability, load balancer, caching, CAP theorem · ${link('/system-design/system-design-tutorial/')}`,diff:"hard"},
+      ]},
+      {label:"Week 25 — Mock Interviews & Final Review",topics:[
+        {name:"Problem of the Day (POTD)",sub:`30 consecutive days — builds the habit · ${link('/problem-of-the-day/')}`,diff:"medium"},
+        {name:"GFG Mock Interview Tool",sub:`Timed simulation with auto scoring · ${link('/mock-interview/')}`,diff:"medium"},
+        {name:"GFG Interview Corner",sub:`Topic-wise + company-wise question bank · ${link('/interview-prep/interview-corner/')}`,diff:"hard"},
+        {name:"Revise Weak Phases",sub:`Return to any phase below 70% and re-solve · ${link('/dsa/dsa-tutorial-learn-data-structures-and-algorithms/')}`,diff:"medium"},
+        {name:"Behavioral / HR Prep",sub:`Tell me about yourself, STAR method, project deep-dive · ${link('/interview-experiences/')}`,diff:"medium"},
+        {name:"Resume + LinkedIn Polish",sub:`DSA-focused resume tips, ATS keywords · ${link('/blogs/how-to-write-a-resume-for-software-engineering-jobs/')}`,diff:"easy"},
+      ]},
+    ]
+  }
+];
+
+const STORAGE_KEY='dsa_roadmap_gfg_v5';
+const THEME_KEY='dsa_theme_v1';
+let state={};
+
+function loadState(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{};}catch{return{};}}
+function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch{}}
+function tid(p,w,t){return`${p}_${w}_${t}`;}
+
+function applyTheme(dark){
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  document.getElementById('theme-cb').checked=dark;
+  try{localStorage.setItem(THEME_KEY,dark?'dark':'light');}catch{}
+}
+function toggleTheme(cb){applyTheme(cb.checked);}
+
+function buildPhases(){
+  const container=document.getElementById('phases-container');
+  container.innerHTML='';
+  PHASES.forEach(phase=>{
+    const el=document.createElement('div');
+    el.className=`phase ${phase.cls}`;el.id=`phase-${phase.id}`;
+    const header=document.createElement('div');
+    header.className='phase-header';
+    header.setAttribute('role','button');
+    header.setAttribute('aria-expanded','false');
+    header.innerHTML=`
+      <div class="phase-num">${phase.num}</div>
+      <div class="phase-info">
+        <div class="phase-title">${phase.title}</div>
+        <span class="phase-badge">${phase.badge}</span>
+      </div>
+      <div class="phase-right">
+        <span class="phase-count" id="cnt-${phase.id}"></span>
+        <div class="phase-arrow">›</div>
+      </div>`;
+    header.addEventListener('click',()=>togglePhase(phase.id));
+    el.appendChild(header);
+
+    const body=document.createElement('div');
+    body.className='phase-body';body.id=`body-${phase.id}`;
+
+    const tip=document.createElement('div');
+    tip.className='phase-tip';
+    tip.innerHTML=`<span class="icon">💡</span><span>${phase.tip}</span>`;
+    body.appendChild(tip);
+
+    phase.weeks.forEach((week,wi)=>{
+      const wl=document.createElement('div');
+      wl.className='week-label';wl.textContent=week.label;
+      body.appendChild(wl);
+      week.topics.forEach((topic,ti)=>{
+        const id=tid(phase.id,wi,ti);
+        const row=document.createElement('div');row.className='topic';
+        const cb=document.createElement('input');
+        cb.type='checkbox';cb.className='topic-check';cb.id=id;cb.checked=!!state[id];
+        const tbody=document.createElement('div');tbody.className='topic-body';
+        const nameEl=document.createElement('div');
+        nameEl.className='topic-name'+(state[id]?' done':'');
+        nameEl.innerHTML=`${topic.name} <span class="diff diff-${topic.diff}">${topic.diff}</span>`;
+        const subEl=document.createElement('div');subEl.className='topic-sub';subEl.innerHTML=topic.sub;
+        cb.addEventListener('change',e=>{
+          state[id]=e.target.checked;saveState();
+          nameEl.className='topic-name'+(e.target.checked?' done':'');
+          updateStats();
+        });
+        tbody.appendChild(nameEl);tbody.appendChild(subEl);
+        row.appendChild(cb);row.appendChild(tbody);
+        row.addEventListener('click',e=>{
+          if(e.target!==cb&&e.target.tagName!=='A'){cb.checked=!cb.checked;cb.dispatchEvent(new Event('change'));}
+        });
+        body.appendChild(row);
+      });
+    });
+    el.appendChild(body);container.appendChild(el);
+  });
+  updateStats();
+}
+
+function togglePhase(id){
+  const el=document.getElementById(`phase-${id}`);
+  const body=document.getElementById(`body-${id}`);
+  const arrow=el.querySelector('.phase-arrow');
+  const header=el.querySelector('.phase-header');
+  const isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  el.classList.toggle('open',!isOpen);
+  arrow.style.transform=isOpen?'':'rotate(90deg)';
+  header.setAttribute('aria-expanded',String(!isOpen));
+}
+
+function updateStats(){
+  let total=0,done=0,currentPhase=1;
+  PHASES.forEach((phase,pi)=>{
+    let pTotal=0,pDone=0;
+    phase.weeks.forEach((w,wi)=>{
+      w.topics.forEach((_,ti)=>{
+        const id=tid(phase.id,wi,ti);
+        pTotal++;total++;
+        if(state[id]){pDone++;done++;}
+      });
+    });
+    const cnt=document.getElementById(`cnt-${phase.id}`);
+    if(cnt)cnt.textContent=`${pDone}/${pTotal}`;
+    if(pDone===pTotal&&pTotal>0)currentPhase=pi+2;
+  });
+  const pct=total?Math.round((done/total)*100):0;
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-label').textContent=`${done} / ${total} topics completed`;
+  document.getElementById('prog-pct').textContent=pct+'%';
+  document.getElementById('stat-done').textContent=done;
+  document.getElementById('stat-total').textContent=total;
+  document.getElementById('stat-pct').textContent=pct+'%';
+  document.getElementById('stat-phase').textContent='P'+Math.min(currentPhase,6);
+  document.getElementById('top-pct').textContent=pct+'%';
+}
+
+function resetAll(){
+  if(!confirm('Reset all progress? This cannot be undone.'))return;
+  state={};saveState();buildPhases();togglePhase('p1');
+}
+
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>360);
+});
+
+(function init(){
+  const saved=(()=>{try{return localStorage.getItem(THEME_KEY);}catch{return null;}})();
+  applyTheme(saved==='dark');
+  state=loadState();
+  buildPhases();
+  togglePhase('p1');
+})();
+</script>
+</body>
+</html>
