@@ -16,6 +16,7 @@
   --blue:#1d4ed8; --blue-bg:#eff4ff;
   --orange:#b45309; --orange-bg:#fff7ed;
   --red:#dc2626; --red-bg:#fef2f2;
+  --p0:#0891b2; --p0-bg:#ecfeff; --p0-br:rgba(8,145,178,0.22);
   --p1:#1d4ed8; --p1-bg:#eff4ff; --p1-br:rgba(29,78,216,0.18);
   --p2:#6d28d9; --p2-bg:#f5f3ff; --p2-br:rgba(109,40,217,0.18);
   --p3:#0e7c5b; --p3-bg:#e6f5ef; --p3-br:rgba(14,124,91,0.22);
@@ -35,6 +36,7 @@
   --blue:#60a5fa; --blue-bg:rgba(96,165,250,0.08);
   --orange:#fb923c; --orange-bg:rgba(251,146,60,0.08);
   --red:#f87171; --red-bg:rgba(248,113,113,0.08);
+  --p0:#22d3ee; --p0-bg:rgba(34,211,238,0.1); --p0-br:rgba(34,211,238,0.22);
   --p1:#60a5fa; --p1-bg:rgba(96,165,250,0.1); --p1-br:rgba(96,165,250,0.22);
   --p2:#a78bfa; --p2-bg:rgba(167,139,250,0.1); --p2-br:rgba(167,139,250,0.22);
   --p3:#10d98a; --p3-bg:rgba(16,217,138,0.08); --p3-br:rgba(16,217,138,0.25);
@@ -111,6 +113,7 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 .diff-hard{background:var(--red-bg);color:var(--red);border:1px solid rgba(220,38,38,.18);}
 [data-theme="dark"] .diff-medium{border-color:rgba(251,146,60,.2);}
 [data-theme="dark"] .diff-hard{border-color:rgba(248,113,113,.2);}
+.p0 .phase-num{background:var(--p0-bg);color:var(--p0);} .p0 .phase-badge{background:var(--p0-bg);color:var(--p0);} .p0.open{border-color:var(--p0-br);}
 .p1 .phase-num{background:var(--p1-bg);color:var(--p1);} .p1 .phase-badge{background:var(--p1-bg);color:var(--p1);} .p1.open{border-color:var(--p1-br);}
 .p2 .phase-num{background:var(--p2-bg);color:var(--p2);} .p2 .phase-badge{background:var(--p2-bg);color:var(--p2);} .p2.open{border-color:var(--p2-br);}
 .p3 .phase-num{background:var(--p3-bg);color:var(--p3);} .p3 .phase-badge{background:var(--p3-bg);color:var(--p3);} .p3.open{border-color:var(--p3-br);}
@@ -161,7 +164,7 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 <div class="hero">
   <div class="hero-tag">✓ GFG Complete Syllabus · Zero Topic Skipped</div>
   <h1>DSA <span class="grad">Mastery</span><br/>Roadmap</h1>
-  <p class="hero-sub">From absolute zero to FAANG-ready. Every GFG topic — basic, intermediate, advanced — in a single linear track. No tab-hopping, no missed sub-topics.</p>
+  <p class="hero-sub">From "never coded before" to FAANG-ready. Starts at Phase 0 — what is a computer, what is binary — and ends at advanced graph algorithms. No skipped basics.</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="n" id="stat-done">0</div><div class="l">Done</div></div>
     <div class="hero-stat"><div class="n" id="stat-total">0</div><div class="l">Topics</div></div>
@@ -183,7 +186,7 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 <button class="reset-btn" onclick="resetAll()">↺ Reset all progress</button>
 
 <div class="footer">
-  Complete GFG DSA Roadmap · 6 Phases · 25 Weeks &nbsp;·&nbsp;
+  Complete GFG DSA Roadmap · 7 Phases · 26 Weeks &nbsp;·&nbsp;
   <a href="https://www.geeksforgeeks.org/dsa/dsa-tutorial-learn-data-structures-and-algorithms/" target="_blank">GFG DSA Tutorial ↗</a>
   &nbsp;·&nbsp;
   <a href="https://www.geeksforgeeks.org/dsa/complete-roadmap-to-learn-dsa-from-scratch/" target="_blank">GFG Roadmap ↗</a>
@@ -196,6 +199,50 @@ const G = "https://www.geeksforgeeks.org";
 const link = (path, label="Open GFG ↗") => `<a href='${G}${path}' target='_blank'>${label}</a>`;
 
 const PHASES = [
+  {
+    id:"p0",cls:"p0",num:"00",title:"Computer Science Basics (Start Here)",badge:"Week 0 · Pre-Start",
+    tip:"You've never coded before? Start here. Don't rush — spend a full week on Phase 0 before touching Phase 1. Every later topic builds on this.",
+    weeks:[
+      {label:"Step 1 — What is a Computer & Program?",topics:[
+        {name:"What is a Computer?",sub:`CPU, memory (RAM), storage, input/output — how a computer thinks · ${link('/software-engineering/types-of-computers/')}`,diff:"easy"},
+        {name:"What is a Program / Software?",sub:`Instructions a computer follows, software vs hardware · ${link('/software-engineering/software-and-its-types/')}`,diff:"easy"},
+        {name:"What is Programming?",sub:`Writing step-by-step instructions in a language a computer understands · ${link('/dsa/introduction-to-programming/')}`,diff:"easy"},
+        {name:"Compiler vs Interpreter",sub:`How code becomes something the computer runs — Python (interpreter) vs C++ (compiler) · ${link('/dsa/difference-between-compiler-and-interpreter/')}`,diff:"easy"},
+        {name:"Choose Your Language",sub:`Python (easiest for beginners), Java (job-ready), C++ (fast & competitive) · ${link('/dsa/which-programming-language-to-choose/')}`,diff:"easy"},
+        {name:"Setup: Install + First Program",sub:`Install Python/VS Code, write "Hello World", run it · ${link('/python/python-programming-language-tutorial/')}`,diff:"easy"},
+        {name:"IDE vs Text Editor",sub:`What is VS Code, IntelliJ, Replit — choose one and stick with it · ${link('/blogs/best-ide-for-programmers/')}`,diff:"easy"},
+      ]},
+      {label:"Step 2 — Number Systems & Binary",topics:[
+        {name:"Decimal, Binary, Hexadecimal",sub:`Why computers use 0s and 1s, what hex is · ${link('/dsa/number-system-and-base-conversions/')}`,diff:"easy"},
+        {name:"Binary ↔ Decimal Conversion",sub:`Convert 10 → 1010, convert 1101 → 13 · ${link('/dsa/program-decimal-binary-conversion/')}`,diff:"easy"},
+        {name:"ASCII & Unicode",sub:`How 'A' = 65, how text is stored as numbers · ${link('/dsa/ascii-table-in-c/')}`,diff:"easy"},
+        {name:"Bytes, Bits, KB, MB",sub:`What size means, units of memory · ${link('/dsa/difference-between-bit-and-byte/')}`,diff:"easy"},
+      ]},
+      {label:"Step 3 — Logic & Math Basics",topics:[
+        {name:"Boolean Logic (AND, OR, NOT, XOR)",sub:`True/false, the foundation of all decisions · ${link('/dsa/boolean-algebra/')}`,diff:"easy"},
+        {name:"Truth Tables",sub:`How to draw and read truth tables for logic gates · ${link('/dsa/truth-table/')}`,diff:"easy"},
+        {name:"Sets, Functions, Relations",sub:`Math sets — union, intersection, basic notation · ${link('/dsa/sets-in-mathematics/')}`,diff:"easy"},
+        {name:"Algebra Recap",sub:`Variables, equations, inequalities — math you already learned in school · ${link('/dsa/algebra-formulas/')}`,diff:"easy"},
+        {name:"Exponents & Powers",sub:`2³ = 8, why exponents matter (n² runtime!) · ${link('/dsa/exponential-functions-definition-formula-properties-rules/')}`,diff:"easy"},
+        {name:"Logarithms",sub:`log₂(8) = 3 — THE most important math for DSA (binary search, trees) · ${link('/dsa/properties-of-logarithms/')}`,diff:"easy"},
+        {name:"Summation Notation (Σ)",sub:`Reading Σ symbols in algorithm analysis · ${link('/dsa/sum-of-natural-numbers/')}`,diff:"easy"},
+        {name:"Permutations & Combinations Intro",sub:`nPr (order matters), nCr (order doesn't) — counting basics · ${link('/dsa/permutation-and-combination/')}`,diff:"easy"},
+        {name:"Probability Basics",sub:`What is probability, simple coin/dice problems · ${link('/dsa/probability-theory/')}`,diff:"easy"},
+      ]},
+      {label:"Step 4 — Coding Habits & Tools",topics:[
+        {name:"Comments in Code",sub:`Single-line, multi-line — write notes for your future self · ${link('/dsa/comments-in-c/')}`,diff:"easy"},
+        {name:"Naming Conventions",sub:`camelCase, snake_case, PascalCase — when to use which · ${link('/dsa/different-types-of-naming-conventions-in-programming/')}`,diff:"easy"},
+        {name:"Indentation & Code Style",sub:`Why spacing matters (especially in Python!) · ${link('/dsa/indentation-and-spacing-in-coding/')}`,diff:"easy"},
+        {name:"Reading Error Messages",sub:`Syntax error, runtime error, logical error — what each means · ${link('/dsa/errors-in-c-cpp/')}`,diff:"easy"},
+        {name:"Debugging Basics",sub:`Print statements, breakpoints, step-through · ${link('/dsa/debugging-techniques-for-beginners/')}`,diff:"easy"},
+        {name:"What is Pseudocode?",sub:`Writing logic in English before code — your secret weapon · ${link('/dsa/how-to-write-a-pseudo-code/')}`,diff:"easy"},
+        {name:"Flowcharts",sub:`Visual diagrams: arrows, boxes, decision points · ${link('/dsa/an-introduction-to-flowcharts/')}`,diff:"easy"},
+        {name:"What is an Algorithm?",sub:`Algorithm vs program — recipe vs cooking · ${link('/dsa/introduction-to-algorithms/')}`,diff:"easy"},
+        {name:"Terminal / Command Line Basics",sub:`cd, ls, mkdir — talking to your computer with words · ${link('/dsa/basic-shell-commands-in-linux/')}`,diff:"easy"},
+        {name:"Git & GitHub Basics",sub:`How to save and share your code online · ${link('/dsa/ultimate-guide-git-github/')}`,diff:"easy"},
+      ]},
+    ]
+  },
   {
     id:"p1",cls:"p1",num:"01",title:"Programming Foundation",badge:"Week 1 – 2",
     tip:"Pick ONE language (Python, C++, or Java) and stick with it the entire 25 weeks. Switching mid-way resets your muscle memory.",
@@ -623,7 +670,7 @@ function togglePhase(id){
 }
 
 function updateStats(){
-  let total=0,done=0,currentPhase=1;
+  let total=0,done=0,currentPhase=0;
   PHASES.forEach((phase,pi)=>{
     let pTotal=0,pDone=0;
     phase.weeks.forEach((w,wi)=>{
@@ -635,7 +682,7 @@ function updateStats(){
     });
     const cnt=document.getElementById(`cnt-${phase.id}`);
     if(cnt)cnt.textContent=`${pDone}/${pTotal}`;
-    if(pDone===pTotal&&pTotal>0)currentPhase=pi+2;
+    if(pDone===pTotal&&pTotal>0)currentPhase=pi+1;
   });
   const pct=total?Math.round((done/total)*100):0;
   document.getElementById('prog-fill').style.width=pct+'%';
@@ -650,7 +697,7 @@ function updateStats(){
 
 function resetAll(){
   if(!confirm('Reset all progress? This cannot be undone.'))return;
-  state={};saveState();buildPhases();togglePhase('p1');
+  state={};saveState();buildPhases();togglePhase('p0');
 }
 
 window.addEventListener('scroll',()=>{
@@ -662,7 +709,7 @@ window.addEventListener('scroll',()=>{
   applyTheme(saved==='dark');
   state=loadState();
   buildPhases();
-  togglePhase('p1');
+  togglePhase('p0');
 })();
 </script>
 </body>
